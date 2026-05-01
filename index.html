@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Election Assistant | Learn the Process</title>
+    <meta name="description" content="An interactive guide to understanding the Indian Election process, featuring timelines, flashcards, and quizzes.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>ElectionAssist India</span>
+        </div>
+        <nav>
+            <button class="nav-btn active" data-target="home">Overview</button>
+            <button class="nav-btn" data-target="timeline">Timeline</button>
+            <button class="nav-btn" data-target="flashcards">Flashcards</button>
+            <button class="nav-btn" data-target="quiz">Quiz</button>
+            <button class="nav-btn" data-target="chat">Chat Assistant</button>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <h1 class="gradient-text">Understand Your Democracy</h1>
+                <p>Welcome to your interactive guide to the Indian electoral process. Explore the largest democratic exercise in the world through timelines, flashcards, and quizzes.</p>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <h3>900M+</h3>
+                        <p>Eligible Voters</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>1M+</h3>
+                        <p>Polling Booths</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>543</h3>
+                        <p>Lok Sabha Seats</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-grid">
+                <div class="card glass">
+                    <div class="card-icon">🏛️</div>
+                    <h2>Lok Sabha Elections</h2>
+                    <p>Members of Parliament (MPs) are elected directly by the people to represent their constituencies in the lower house of India's bicameral Parliament.</p>
+                </div>
+                <div class="card glass">
+                    <div class="card-icon">🗺️</div>
+                    <h2>State Assembly Elections</h2>
+                    <p>Members of Legislative Assembly (MLAs) are elected directly by the people to form the state government.</p>
+                </div>
+                <div class="card glass">
+                    <div class="card-icon">🤝</div>
+                    <h2>The Election Commission</h2>
+                    <p>The Election Commission of India (ECI) is an autonomous constitutional authority responsible for administering election processes in India.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline" class="section hidden">
+            <h2 class="section-title">The Election Timeline</h2>
+            <div class="timeline-container">
+                <!-- Timeline items will be injected by JS -->
+            </div>
+        </section>
+
+        <!-- Flashcards Section -->
+        <section id="flashcards" class="section hidden">
+            <h2 class="section-title">Electoral Glossary</h2>
+            <p class="section-subtitle">Click to flip and reveal the definition.</p>
+            <div class="flashcards-grid" id="flashcards-container">
+                <!-- Flashcards will be injected by JS -->
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="section hidden">
+            <div class="quiz-container glass">
+                <div id="quiz-start" class="quiz-state active">
+                    <h2>Test Your Knowledge</h2>
+                    <p>Take this interactive quiz to see how much you know about the Indian election process.</p>
+                    <button id="start-quiz-btn" class="primary-btn">Start Quiz</button>
+                </div>
+                
+                <div id="quiz-active" class="quiz-state hidden">
+                    <div class="quiz-header">
+                        <span id="question-counter">Question 1/5</span>
+                        <div class="progress-bar">
+                            <div id="quiz-progress" class="progress-fill" style="width: 20%"></div>
+                        </div>
+                    </div>
+                    <h3 id="question-text">Question goes here?</h3>
+                    <div id="options-container" class="options-grid">
+                        <!-- Options injected by JS -->
+                    </div>
+                    <div id="feedback-container" class="feedback hidden">
+                        <p id="feedback-text"></p>
+                        <button id="next-question-btn" class="primary-btn hidden">Next Question</button>
+                    </div>
+                </div>
+
+                <div id="quiz-end" class="quiz-state hidden">
+                    <h2>Quiz Completed!</h2>
+                    <div class="score-display">
+                        <span id="final-score" class="gradient-text">0</span> / <span id="total-questions">5</span>
+                    </div>
+                    <p id="score-message">Great job learning about your democracy!</p>
+                    <button id="restart-quiz-btn" class="primary-btn">Try Again</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chat Section -->
+        <section id="chat" class="section hidden">
+            <h2 class="section-title">Election Assistant AI</h2>
+            <p class="section-subtitle">Ask anything about the Indian election process.</p>
+            <div class="chat-container glass">
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message bot">
+                        <div class="message-content">
+                            Hello! I am your Indian Election Assistant. How can I help you understand the election process today?
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="chat-input" placeholder="Type your question here...">
+                    <button id="send-chat-btn" class="primary-btn" style="margin-top: 0; padding: 0.8rem 1.5rem;">Send</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
